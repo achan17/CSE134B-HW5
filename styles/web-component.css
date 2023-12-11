@@ -11,6 +11,8 @@
     --step-5: clamp(2.7994rem, 5.1208rem + -1.9345vw, 3.815rem);
 
     --main-bg-color: #bcc8ec;
+    --star-highlighted: yellow;
+    --star-ignored: gray;
   }
 
 @font-face {
@@ -58,4 +60,13 @@ footer{
 
 p{
     display: inline;
+}
+
+section {
+    display: inline;
+}
+
+section > label {
+    color: gray;
+    
 }

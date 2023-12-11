@@ -11,6 +11,7 @@
     <title>Web Component</title>
     <link href="images/favicon.ico" rel="icon">
     <link href="styles/web-component.css" rel="stylesheet">
+    <script async src="scripts/web-component.js"></script>
 </head>
 
 <body>
@@ -30,14 +31,25 @@
 
     <main>
         <rating-widget>
-            <form action="https://httpbin.org/post" method="POST">
-                    <label for="rating">How satisfied are you?</label>
+            <form id="rating" action="https://httpbin.org/post" method="POST">
+                    <p>How satisfied are you?</p>
                     <input type="hidden" name="question" value="How satisfied are you?">
-                    <input type="hidden" name="sentBy" value="HTML">
-                    <input type="number" id="rating" name="rating" 
-                    min="1" max="5" value="0" required>
+                    <noscript><input type="hidden" name="sentBy" value="HTML"></noscript>
+                    <section>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1" title="1 star" id="star1Label">1 &starf;</label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2" title="2 stars" id="star2Label">2 &starf;</label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3" title="3 stars" id="star3Label">3 &starf;</label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4" title="4 stars" id="star4Label">4 &starf;</label>
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label for="star5" title="5 stars" id="star5Label">5 &starf;</label>
+                    </section>
                     <button type="submit">Submit</button>
             </form>
+            <output></output>
         </rating-widget>
         <hr>
 
@@ -115,7 +127,6 @@
                             .then(data => {
                                 const weather = data.properties; 
                                 const fourteenForecast = weather.periods;
-                                console.log(fourteenForecast);
                                 const today = fourteenForecast[0];
                                 const nextDay = fourteenForecast[1];
                                 const thenDay = fourteenForecast[2];
@@ -195,7 +206,7 @@
 
         customElements.define('current-weather', CurrentWeather);
         </script>
-        <noscript>Current Weather Conditions Unavailable</noscript>
+        <noscript>Current Weather Conditions Unavailable (Javascript is potentially off)</noscript>
     </main>
 
     <footer>
